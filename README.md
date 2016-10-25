@@ -12,9 +12,11 @@
 
 ### How to Install
 
-
+Download `LiteAutoLayout.swift` to your project folder, and then add reference to your project.
 
 ### How to use
+
+For example:
 
 `panel` is superview which contain subview `view1` and `view2`.
 
