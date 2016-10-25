@@ -1,8 +1,8 @@
-## AMLiteAutoLayout
+## LiteAutoLayout
 
-### What is AMLiteAutoLayout
+### What is LiteAutoLayout
 
-`AMLiteAutoLayout ` is developed with Swift 3.0, it is a simple and useful library for you to create layout constraint for the views. 
+`LiteAutoLayout ` is developed with Swift 3.0, it is a simple and useful library for you to create layout constraint for the views. 
 
 ### Requirements
 
@@ -34,7 +34,7 @@ Set layout constraint between `view1` and `view2`:
 
 `view2` have 0pt bottom margin in panel.
 
-Above code is similar with the Interface Builder, if you have experience in create autolayout constraint with interface builder, you will easy to use AMLiteAutoLayout.
+Above code is similar with the Interface Builder, if you have experience in create autolayout constraint with interface builder, you will easy to use LiteAutoLayout.
 
 
 You can set `view1` width and height with 300pt like below:
