@@ -3,7 +3,7 @@
 
 <p align="left">
 
-<img src="https://img.shields.io/badge/platform-Xcode%206%2B-blue.svg?style=flat" alt="Platform: Xcode 8+"/>
+<img src="https://img.shields.io/badge/platform-Xcode%208%2B-blue.svg?style=flat" alt="Platform: Xcode 8+"/>
 <img src="http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat" alt="License: MIT" />
 
 </p>
@@ -14,7 +14,7 @@
 
 ### Requirements
 
-* Swift 3.0, Xcode 8
+* Swift 3.0, Xcode 8+
 
 * iOS 7.0 or later
 
