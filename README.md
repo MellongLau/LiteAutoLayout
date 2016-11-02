@@ -14,7 +14,6 @@
 ### Requirements
 
 * Swift 3.0, Xcode 8+
-
 * iOS 7.0 or later
 
 ### How to Install
@@ -49,7 +48,7 @@ Above code is similar with the Interface Builder, if you have experience in crea
 You can set `view1` width and height with 300pt like below:
 
 ```swift
- (~>view1).equalWidths(300).equalHeights(300)
+(~>view1).equalWidths(300).equalHeights(300)
 ```
 
 ## More
