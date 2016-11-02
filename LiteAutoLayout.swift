@@ -1,13 +1,29 @@
 //
-//  LiteAutoLayout.swift
+// Copyright (c) 2016 Mellong Lau
+// https://github.com/MellongLau/LiteAutoLayout
 //
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-//  Created by Mellong Lau on 10/14/16.
-//  Copyright © 2016 Mellong Lau. All rights reserved.
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
+
+
 
 import UIKit
-
 
 // MARK: - Public API
 prefix operator ~>
@@ -21,8 +37,8 @@ public extension UIView {
     ///
     /// - returns: LiteAutoLayout object
     static func ~> (left: UIView, right: UIView) -> LiteAutoLayout {
-        let lite = LiteAutoLayout(left: left, right: right)
-        return lite
+    let lite = LiteAutoLayout(left: left, right: right)
+    return lite
     }
     
     
@@ -32,8 +48,8 @@ public extension UIView {
     ///
     /// - returns: LiteAutoLayout object
     static prefix func ~> (view: UIView) -> LiteAutoLayout {
-        let lite = LiteAutoLayout(left: view, right: nil)
-        return lite
+    let lite = LiteAutoLayout(left: view, right: nil)
+    return lite
     }
     
     
@@ -107,132 +123,132 @@ public class LiteAutoLayout {
         secondItem = right
     }
     
-    @discardableResult func setEqualHeights(_ constant: Float) -> LiteAutoLayout {
-        return setEqualHeights(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
+    @discardableResult func equalHeights(_ constant: Float) -> LiteAutoLayout {
+        return equalHeights(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
     }
     
-    @discardableResult func setEqualWidths(_ constant: Float) -> LiteAutoLayout {
-        return setEqualWidths(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
+    @discardableResult func equalWidths(_ constant: Float) -> LiteAutoLayout {
+        return equalWidths(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
     }
     
-    @discardableResult func setBaseline(_ constant: Float) -> LiteAutoLayout {
-        return setBaseline(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
+    @discardableResult func baseline(_ constant: Float) -> LiteAutoLayout {
+        return baseline(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
     }
     
-    @discardableResult func setLeading(_ constant: Float) -> LiteAutoLayout {
-        return setLeading(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
+    @discardableResult func leading(_ constant: Float) -> LiteAutoLayout {
+        return leading(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
     }
     
-    @discardableResult func setBottom(_ constant: Float) -> LiteAutoLayout {
-        return setBottom(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
+    @discardableResult func bottom(_ constant: Float) -> LiteAutoLayout {
+        return bottom(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
     }
     
-    @discardableResult func setTop(_ constant: Float) -> LiteAutoLayout {
-        return setTop(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
-    }
-
-    @discardableResult func setTrailing(_ constant: Float) -> LiteAutoLayout {
-        return setTrailing(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
+    @discardableResult func top(_ constant: Float) -> LiteAutoLayout {
+        return top(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
     }
     
-    @discardableResult func setHorizontalSpacing(_ constant: Float) -> LiteAutoLayout {
-        return setHorizontalSpacing(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
+    @discardableResult func trailing(_ constant: Float) -> LiteAutoLayout {
+        return trailing(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
     }
     
-    @discardableResult func setVerticalSpacing(_ constant: Float) -> LiteAutoLayout {
-        return setVerticalSpacing(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
+    @discardableResult func horizontalSpacing(_ constant: Float) -> LiteAutoLayout {
+        return horizontalSpacing(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
     }
     
-    @discardableResult func setCenterVertically(_ constant: Float) -> LiteAutoLayout {
-        return setCenterVertically(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
+    @discardableResult func verticalSpacing(_ constant: Float) -> LiteAutoLayout {
+        return verticalSpacing(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
     }
     
-    @discardableResult func setCenterHorizontally(_ constant: Float) -> LiteAutoLayout {
-        return setCenterHorizontally(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
+    @discardableResult func centerVertically(_ constant: Float) -> LiteAutoLayout {
+        return centerVertically(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
     }
     
-    @discardableResult func setAspectRatio(width: Float, height: Float) -> LiteAutoLayout {
-        return setAspectRatio(width: width, height: height, relatedBy: .equal, priority: UILayoutPriorityRequired)
+    @discardableResult func centerHorizontally(_ constant: Float) -> LiteAutoLayout {
+        return centerHorizontally(constant: constant, relatedBy: .equal, multiplier: 1.0, priority: UILayoutPriorityRequired)
     }
     
-    @discardableResult func setEqualHeights(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
+    @discardableResult func aspectRatio(width: Float, height: Float) -> LiteAutoLayout {
+        return aspectRatio(width: width, height: height, relatedBy: .equal, priority: UILayoutPriorityRequired)
+    }
+    
+    @discardableResult func equalHeights(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
         let item = ContraintModel(contraintType: .equalHeights, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
         return self
     }
     
-    @discardableResult func setEqualWidths(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
+    @discardableResult func equalWidths(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
         let item = ContraintModel(contraintType: .equalWidths, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
         return self
     }
     
-    @discardableResult func setBaseline(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
+    @discardableResult func baseline(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
         let item = ContraintModel(contraintType: .baseline, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
         return self
     }
     
-    @discardableResult func setLeading(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
+    @discardableResult func leading(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
         let item = ContraintModel(contraintType: .leading, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
         return self
     }
     
-    @discardableResult func setBottom(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
+    @discardableResult func bottom(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
         let item = ContraintModel(contraintType: .bottom, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
         return self
     }
     
-    @discardableResult func setTop(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
+    @discardableResult func top(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
         let item = ContraintModel(contraintType: .top, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
         return self
     }
     
-    @discardableResult func setTrailing(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
+    @discardableResult func trailing(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
         let item = ContraintModel(contraintType: .trailing, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
         return self
     }
     
-    @discardableResult func setHorizontalSpacing(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
+    @discardableResult func horizontalSpacing(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
         let item = ContraintModel(contraintType: .horizontalSpacing, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
         return self
     }
     
-    @discardableResult func setVerticalSpacing(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
+    @discardableResult func verticalSpacing(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
         let item = ContraintModel(contraintType: .verticalSpacing, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
         return self
     }
     
-    @discardableResult func setCenterVertically(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
+    @discardableResult func centerVertically(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
         let item = ContraintModel(contraintType: .centerVertically, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
         return self
     }
     
-    @discardableResult func setCenterHorizontally(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
+    @discardableResult func centerHorizontally(constant: Float, relatedBy: NSLayoutRelation, multiplier: Float, priority: Float) -> LiteAutoLayout {
         let item = ContraintModel(contraintType: .centerHorizontally, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
         return self
     }
     
-    @discardableResult func setAspectRatio(width: Float, height: Float, relatedBy: NSLayoutRelation, priority: Float) -> LiteAutoLayout {
+    @discardableResult func aspectRatio(width: Float, height: Float, relatedBy: NSLayoutRelation, priority: Float) -> LiteAutoLayout {
         let item = ContraintModel(contraintType: .aspectRatio, constants: 0, relatedBy: relatedBy, multiplier: width/height, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
@@ -307,7 +323,7 @@ public class LiteAutoLayout {
             firstItem.addConstraint(layoutConstraint)
             return;
         }
-
+        
         // find the parent view to add layout constraint if exist.
         if firstItem === secondItem?.superview {
             firstItem.addConstraint(layoutConstraint)
@@ -319,7 +335,7 @@ public class LiteAutoLayout {
         else {
             firstItem.addConstraint(layoutConstraint)
         }
-  
+        
     }
     
 }

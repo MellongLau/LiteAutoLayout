@@ -31,9 +31,9 @@ Set layout constraint between `view1` and `view2`:
 
 ```swift
 
-(view1 ~> panel).setTop(20).setLeading(0)
-(view2 ~> view1).setHorizontalSpacing(5).setEqualHeights(0).setTop(0)
-(view2 ~> panel).setTrailing(0)
+(view1 ~> panel).top(20).leading(0)
+(view2 ~> view1).horizontalSpacing(5).equalHeights(0).top(0)
+(view2 ~> panel).trailing(0)
 
 ```
 
@@ -49,7 +49,7 @@ Above code is similar with the Interface Builder, if you have experience in crea
 You can set `view1` width and height with 300pt like below:
 
 ```swift
- (~>view1).setEqualWidths(300).setEqualHeights(300)
+ (~>view1).equalWidths(300).equalHeights(300)
 ```
 
 ## More
