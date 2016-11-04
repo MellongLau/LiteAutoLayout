@@ -30,9 +30,9 @@ Set layout constraint between `view1` and `view2`:
 
 ```swift
 
-(view1 ~> panel).top(20).leading(0)
-(view2 ~> view1).horizontalSpacing(5).equalHeights(0).top(0)
-(view2 ~> panel).trailing(0)
+(view1 ~> panel).top(20).leading()
+(view2 ~> view1).horizontalSpacing(5).equalHeights().top()
+(view2 ~> panel).trailing()
 
 ```
 
