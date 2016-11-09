@@ -51,6 +51,12 @@ You can set `view1` width and height with 300pt like below:
 (~>view1).equalWidths(300).equalHeights(300)
 ```
 
+or you can set `view2` height >= 1/2 `view1` height:
+
+```swift
+(view2 ~> view1).equalHeights(relatedBy: .greaterThanOrEqual, multiplier: 1/2)
+```
+
 ## More
 Learn more? Follow my `WeChat` public account `mellong`:
 
