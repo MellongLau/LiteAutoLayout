@@ -11,6 +11,16 @@
 
 `LiteAutoLayout ` is developed with Swift 3.0, it is a simple and useful library for you to create layout constraint for the views. 
 
+### Demo
+
+Below screenshot show the demo screenshot of the library.
+
+![Demo](./screenshot.png)
+
+All the LiteAutoLayout style contraints code show below:
+
+![Code](./layout_contraints.png)
+
 ### Requirements
 
 * Swift 3.0, Xcode 8+
@@ -54,7 +64,7 @@ You can set `view1` width and height with 300pt like below:
 or you can set `view2` height >= 1/2 `view1` height:
 
 ```swift
-(view2 ~> view1).equalHeights(relatedBy: .greaterThanOrEqual, multiplier: 1/2)
+(view2 ~> view1).equalHeights(relatedBy: >=, multiplier: 1/2)
 ```
 
 ## More

@@ -21,9 +21,7 @@
 // SOFTWARE.
 //
 
-
 import UIKit
-
 
 
 // MARK: - Public API
@@ -38,7 +36,7 @@ public extension UIView {
     ///
     /// - returns: RelationLiteAutoLayout instance
     public static func ~> (left: UIView, right: UIView) -> RelationLiteAutoLayout {
-    return RelationLiteAutoLayout(left: left, right: right)
+        return RelationLiteAutoLayout(left: left, right: right)
     }
     
     
@@ -48,7 +46,7 @@ public extension UIView {
     ///
     /// - returns: ItemLiteAutoLayout instance
     public static prefix func ~> (view: UIView) -> ItemLiteAutoLayout {
-    return ItemLiteAutoLayout(left: view, right: nil)
+        return ItemLiteAutoLayout(left: view, right: nil)
     }
     
     
