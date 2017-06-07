@@ -7,6 +7,8 @@
 
 </p>
 
+*Like this project?*  `Star us above!`
+
 ### What is LiteAutoLayout
 
 `LiteAutoLayout ` is developed with Swift 3.0, it is a simple and useful library for you to create layout constraint for the views. 
@@ -70,6 +72,18 @@ or you can set `view2` height >= 1/2 `view1` height:
 ```swift
 (view2 ~> view1).equalHeights(relatedBy: >=, multiplier: 1/2)
 ```
+
+### Using LiteAutoLayout?
+
+If you're using LiteAutoLayout in one of your own projects, let me know! I'll add a link to your profile/website/app right here on the front page. Feel free to email me at the address shown below.
+
+### Contributing
+Forks, patches and other feedback are welcome.
+
+### Creator
+I'm Mellong, you can contact me by E-Mail: <tendencystudio@gmail.com>
+
+Website: [http://www.devlong.com](http://www.devlong.com)
 
 ## More
 Learn more? Follow my `WeChat` public account `mellong`:

@@ -82,7 +82,7 @@ subview.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = 
 
 ### 使用 LiteAutoLayout?
 
-如果你在你的项目中使用了 CocoRongPullToRefresh，请发邮件(邮件地址在下面)告诉我一声，我会把你的 app 的下载链接添加到这里！
+如果你在你的项目中使用了 LiteAutoLayout，请发邮件(邮件地址在下面)告诉我一声，我会把你的 app 的下载链接添加到这里！
 
 ## 贡献
 
