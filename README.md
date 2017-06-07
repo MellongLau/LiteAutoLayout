@@ -11,6 +11,10 @@
 
 `LiteAutoLayout ` is developed with Swift 3.0, it is a simple and useful library for you to create layout constraint for the views. 
 
+### Language
+
+[中文](./README_CN.md)
+
 ### Demo
 
 Below screenshot show the demo screenshot of the library.
