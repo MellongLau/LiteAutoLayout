@@ -4,6 +4,17 @@
 
 [English](./README.md)
 
+## 示例项目
+
+可以下载 Demo 文件夹下的示例项目运行，下面是运行后的截图。
+
+![Demo](./screenshot.png)
+
+这是一个使用 LiteAutoLayout 编写布局约束的登录框界面，所有的约束代码都在下面的代码截图中：
+
+![Code](./layout_contraints.png)
+
+
 ### 简介
 
 最近在用 Swift 3.0，Swift 3.0给我们带来了很多新的特性，在学习过程中发现自定义操作符这个写法很适合来写 autolayout 的约束，结合自己平时使用 IB 来创建视图之间的约束的经验，决定使用自定义操作符来让使用代码创建约束更加直观，清晰和简单。
@@ -73,16 +84,6 @@ subview.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = 
 ## 如何安装
 
 下载文件 LiteAutoLayout.swift 并将其复制到项目文件夹下，添加引用到项目中即可。
-
-## 示例项目
-
-可以下载 Demo 文件夹下的示例项目运行，下面是运行后的截图。
-
-![Demo](./screenshot.png)
-
-这是一个使用 LiteAutoLayout 编写布局约束的登录框界面，所有的约束代码都在下面的代码截图中：
-
-![Code](./layout_contraints.png)
 
 ### 使用 LiteAutoLayout?
 
