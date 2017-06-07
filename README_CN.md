@@ -78,7 +78,11 @@ subview.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = 
 
 可以下载 Demo 文件夹下的示例项目运行，下面是运行后的截图。
 
+![Demo](./screenshot.png)
+
 这是一个使用 LiteAutoLayout 编写布局约束的登录框界面，所有的约束代码都在下面的代码截图中：
+
+![Code](./layout_contraints.png)
 
 ### 使用 LiteAutoLayout?
 
