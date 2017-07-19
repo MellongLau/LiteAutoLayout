@@ -77,6 +77,10 @@ or you can set `view2` height >= 1/2 `view1` height:
 
 If you're using LiteAutoLayout in one of your own projects, let me know! I'll add a link to your profile/website/app right here on the front page. Feel free to email me at the address shown below.
 
+A Germany developer has used our library in his app:
+
+![Meine Erste Wahl](http://is1.mzstatic.com/image/thumb/Purple127/v4/ea/da/b1/eadab136-b1f0-4bfb-6f01-2791f12ddaa6/source/175x175bb.jpg)
+
 ### Contributing
 Forks, patches and other feedback are welcome.
 
