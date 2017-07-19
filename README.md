@@ -28,12 +28,6 @@ All the LiteAutoLayout style contraints code show below:
 ![Code](./layout_contraints.png)
 
 ### NSLayoutConstraint vs NSLayoutAnchor vs LiteAutoLayout
-如设置两个视图之间垂直的距离约束verticalSpacing(), 值得注意的是~>后面的视图默认是在上方，如果是添加水平距离，则~>后面的视图是在左边。
-
-这个库是一个简单的封装，如果你使用过 sdk 原始创建约束的方法的话，你应该会被其繁琐的写法所吓倒。
-
-这里引用 apple 官网的一个例子：
-
 
 Such as setting the vertical distance between the two views: `verticalSpacing()`, it is worth noting that the view on the right of `~>` is the top side of the view, if it is to add a horizontal distance, then the view on the right of `~>` is on the left side.
 
@@ -42,7 +36,7 @@ This library is a simple wrapper, and if you have used sdk to create a constrain
 Here is an official example of the Apple:
 
 ```swift
-// 使用 NSLayoutConstraint 创建约束
+// Using NSLayoutConstraint create layout constraint
 NSLayoutConstraint(item: subview,
                    attribute: .Leading,
                    relatedBy: .Equal,
@@ -61,7 +55,7 @@ NSLayoutConstraint(item: subview,
 ``` 
 
 ```swift
-// 使用 Layout Anchors 创建相同的约束
+// Using Layout Anchors create the same layout constraint
 let margins = view.layoutMarginsGuide
  
 subview.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor).active = true
@@ -71,7 +65,7 @@ subview.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = 
 The first example use NSLayoutConstraint to create a simple layout constraints need complicated code, the second example use NSLayoutAnchor can simplify the constraint code, but still need three lines code, let's use LiteAutoLayout to create the same layout constraints:
 
 ```swift
-// 使用 Lite Auto Layout 创建相同的约束
+// Using Lite Auto Layout create the same layout constraint
 (subview ~> view).leading().trailing()
 ```
 
