@@ -1,3 +1,8 @@
+Donate
+===========
+
+* [Donate via paypal](https://paypal.me/mellonglau)
+
 ## LiteAutoLayout
 
 <p align="left">
