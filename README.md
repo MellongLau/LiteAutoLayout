@@ -1,7 +1,3 @@
-Donate
-===========
-
-* [Donate via paypal](https://paypal.me/mellonglau)
 
 ## LiteAutoLayout
 
@@ -139,11 +135,6 @@ Forks, patches and other feedback are welcome.
 I'm Mellong, you can contact me by E-Mail: <tendencystudio@gmail.com>
 
 Website: [http://www.devlong.com](http://www.devlong.com)
-
-## More
-Learn more? Follow my `WeChat` public account `mellong`:
-
-![WeChat QRcode](http://www.devlong.com/blogImages/qrcode_for_mellong.jpg)
 
 ## License
 
