@@ -12,7 +12,7 @@
 
 ### What is LiteAutoLayout
 
-`LiteAutoLayout ` is developed with Swift 3.0,it supports Swift 4.2 now, it is a simple and useful library for you to create layout constraint for the views. 
+`LiteAutoLayout ` is developed with Swift 5.0, it is a simple and useful library for you to create layout constraint for the views. 
 
 ### Language
 
@@ -74,7 +74,7 @@ We only need one line code to create the same layout constraints!
 
 ### Requirements
 
-* Swift 3.0, Xcode 8+
+* Swift 5.0
 * iOS 7.0 or later
 
 ### How to Install
