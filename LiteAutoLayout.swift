@@ -53,7 +53,7 @@ public extension UIView {
     /// Set the view's layout attribute
     ///
     /// - returns: ItemLiteAutoLayout instance
-    public func startLayout() -> ItemLiteAutoLayout {
+    @objc public func startLayout() -> ItemLiteAutoLayout {
         return ItemLiteAutoLayout(left: self, right: nil)
     }
     
@@ -63,7 +63,7 @@ public extension UIView {
     /// - parameter toView: the view's superview, or at the top or left of the view.
     ///
     /// - returns: RelationLiteAutoLayout instance
-    public func startLayout(toView: UIView) -> RelationLiteAutoLayout {
+    @objc public func startLayout(toView: UIView) -> RelationLiteAutoLayout {
         return RelationLiteAutoLayout(left: self, right: toView)
     }
     
@@ -130,9 +130,21 @@ fileprivate class ContraintModel
     
 }
 
-public class ItemLiteAutoLayout: LiteAutoLayout {
+@objc public class ItemLiteAutoLayout: LiteAutoLayout {
     
-    @discardableResult public func marginTop(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
+    @objc @discardableResult public func marginTopToSafeArea(_ constant: Float = 0) -> ItemLiteAutoLayout {
+        let superview = firstItem.superview!
+        firstItem.topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor, constant: constant.cgFloat).isActive = true
+        return self
+    }
+    
+    @objc @discardableResult public func marginBottomToSafeArea(_ constant: Float = 0) -> ItemLiteAutoLayout {
+        let superview = firstItem.superview!
+        firstItem.bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor, constant: constant.cgFloat).isActive = true
+        return self
+    }
+    
+    @objc @discardableResult public func marginTop(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
         let item = ContraintModel(contraintType: .top, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         secondItem = firstItem.superview
@@ -141,7 +153,7 @@ public class ItemLiteAutoLayout: LiteAutoLayout {
         return self
     }
     
-    @discardableResult public func marginBottom(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
+    @objc @discardableResult public func marginBottom(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
         let item = ContraintModel(contraintType: .bottom, constants: -constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         secondItem = firstItem.superview
@@ -150,7 +162,7 @@ public class ItemLiteAutoLayout: LiteAutoLayout {
         return self
     }
     
-    @discardableResult public func marginLeft(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
+    @objc @discardableResult public func marginLeft(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
         let item = ContraintModel(contraintType: .leading, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         secondItem = firstItem.superview
@@ -159,7 +171,7 @@ public class ItemLiteAutoLayout: LiteAutoLayout {
         return self
     }
     
-    @discardableResult public func marginRight(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
+    @objc @discardableResult public func marginRight(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
         let item = ContraintModel(contraintType: .trailing, constants: -constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         secondItem = firstItem.superview
@@ -168,14 +180,14 @@ public class ItemLiteAutoLayout: LiteAutoLayout {
         return self
     }
     
-    @discardableResult public func height(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
+    @objc @discardableResult public func height(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
         let item = ContraintModel(contraintType: .equalHeights, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
         return self
     }
     
-    @discardableResult public func width(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
+    @objc @discardableResult public func width(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
         let item = ContraintModel(contraintType: .equalWidths, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
@@ -184,7 +196,7 @@ public class ItemLiteAutoLayout: LiteAutoLayout {
     
     
     
-    @discardableResult public func centerVertically(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
+    @objc @discardableResult public func centerVertically(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
         let item = ContraintModel(contraintType: .centerVertically, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         secondItem = firstItem.superview
@@ -193,7 +205,7 @@ public class ItemLiteAutoLayout: LiteAutoLayout {
         return self
     }
     
-    @discardableResult public func centerHorizontally(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
+    @objc @discardableResult public func centerHorizontally(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
         let item = ContraintModel(contraintType: .centerHorizontally, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         secondItem = firstItem.superview
@@ -202,7 +214,7 @@ public class ItemLiteAutoLayout: LiteAutoLayout {
         return self
     }
     
-    @discardableResult public func aspectRatio(width: Float, height: Float, relatedBy: ((Int, Int) -> Bool) = (==), priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
+    @objc @discardableResult public func aspectRatio(width: Float, height: Float, relatedBy: ((Int, Int) -> Bool) = (==), priority: UILayoutPriority = UILayoutPriority.required) -> ItemLiteAutoLayout {
         let item = ContraintModel(contraintType: .aspectRatio, constants: 0, relatedBy: relatedBy, multiplier: width/height, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
@@ -210,8 +222,8 @@ public class ItemLiteAutoLayout: LiteAutoLayout {
     }
 }
 
-public class RelationLiteAutoLayout: LiteAutoLayout {
-    @discardableResult public func baseline(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
+@objc public class RelationLiteAutoLayout: LiteAutoLayout {
+    @objc @discardableResult public func baseline(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
         guard let _ = secondItem else {
             return self
         }
@@ -222,7 +234,7 @@ public class RelationLiteAutoLayout: LiteAutoLayout {
         return self
     }
     
-    @discardableResult public func leading(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
+    @objc @discardableResult public func leading(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
         guard let _ = secondItem else {
             return self
         }
@@ -233,7 +245,7 @@ public class RelationLiteAutoLayout: LiteAutoLayout {
         return self
     }
     
-    @discardableResult public func bottom(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
+    @objc @discardableResult public func bottom(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
         guard let _ = secondItem else {
             return self
         }
@@ -244,7 +256,7 @@ public class RelationLiteAutoLayout: LiteAutoLayout {
         return self
     }
     
-    @discardableResult public func top(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
+    @objc @discardableResult public func top(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
         guard let _ = secondItem else {
             return self
         }
@@ -255,7 +267,7 @@ public class RelationLiteAutoLayout: LiteAutoLayout {
         return self
     }
     
-    @discardableResult public func trailing(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
+    @objc @discardableResult public func trailing(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
         guard let _ = secondItem else {
             return self
         }
@@ -266,7 +278,7 @@ public class RelationLiteAutoLayout: LiteAutoLayout {
         return self
     }
     
-    @discardableResult public func horizontalSpacing(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
+    @objc @discardableResult public func horizontalSpacing(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
         guard let _ = secondItem else {
             return self
         }
@@ -277,7 +289,7 @@ public class RelationLiteAutoLayout: LiteAutoLayout {
         return self
     }
     
-    @discardableResult public func verticalSpacing(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
+    @objc @discardableResult public func verticalSpacing(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
         guard let _ = secondItem else {
             return self
         }
@@ -288,14 +300,14 @@ public class RelationLiteAutoLayout: LiteAutoLayout {
         return self
     }
     
-    @discardableResult public func equalHeights(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
+    @objc @discardableResult public func equalHeights(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
         let item = ContraintModel(contraintType: .equalHeights, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
         return self
     }
     
-    @discardableResult public func equalWidths(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
+    @objc @discardableResult public func equalWidths(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
         let item = ContraintModel(contraintType: .equalWidths, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
@@ -304,14 +316,14 @@ public class RelationLiteAutoLayout: LiteAutoLayout {
     
     
     
-    @discardableResult public func centerVertically(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
+    @objc @discardableResult public func centerVertically(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
         let item = ContraintModel(contraintType: .centerVertically, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
         return self
     }
     
-    @discardableResult public func centerHorizontally(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
+    @objc @discardableResult public func centerHorizontally(_ constant: Float = 0, relatedBy: ((Int, Int) -> Bool) = (==), multiplier: Float = 1.0, priority: UILayoutPriority = UILayoutPriority.required) -> RelationLiteAutoLayout {
         let item = ContraintModel(contraintType: .centerHorizontally, constants: constant, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         constraints.append(item)
         addContraint(contraintModel: item)
@@ -319,7 +331,7 @@ public class RelationLiteAutoLayout: LiteAutoLayout {
     }
 }
 
-public class LiteAutoLayout {
+@objc public class LiteAutoLayout: NSObject {
     
     fileprivate var constraints: [ContraintModel] = []
     fileprivate var firstItem: UIView!
@@ -330,9 +342,7 @@ public class LiteAutoLayout {
         firstItem = left
         secondItem = right
     }
-    
-    
-    
+     
     fileprivate func addContraint(contraintModel: ContraintModel) -> Void {
         let item = contraintModel
         var layoutConstraint: NSLayoutConstraint!
@@ -403,8 +413,18 @@ public class LiteAutoLayout {
         
         // find the parent view to add layout constraint if exist.
         if firstItem === secondItem?.superview {
+            //            firstItem.constraints
             firstItem.addConstraint(layoutConstraint)
         }else if firstItem.superview === secondItem {
+            let constraints = secondItem?.constraints.filter {
+                $0.firstItem === firstItem
+                    && $0.secondItem === secondItem
+                    && layoutAttributes.fistAttribute == $0.firstAttribute
+                    && layoutAttributes.secondAttibute == $0.secondAttribute
+            }
+            if let safeConstraints = constraints {
+                secondItem?.removeConstraints(safeConstraints)
+            }
             secondItem?.addConstraint(layoutConstraint)
         }else if firstItem.superview === secondItem?.superview {
             firstItem.superview?.addConstraint(layoutConstraint)
