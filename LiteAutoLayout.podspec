@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
   spec.version      = "1.0.1"
   spec.summary      = "LiteAutoLayout is a simple and useful library for you to create layout constraint for the views."
   spec.homepage     = "https://github.com/MellongLau/LiteAutoLayout"
-  spec.screenshots  = "https://raw.githubusercontent.com/MellongLau/LiteAutoLayout/refs/heads/master/layout_contraints.png"
+  spec.screenshots  = "https://raw.github.com/MellongLau/LiteAutoLayout/master/layout_contraints.png"
   spec.license      = {:type => 'MIT', :file => 'LICENSE.md'}
   spec.author       = {'Mellong Lau' => 'tendencystudio@gmail.com'} 
   spec.source       = {:git => 'https://github.com/MellongLau/LiteAutoLayout.git', :tag => '1.0.1'}
