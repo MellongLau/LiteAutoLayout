@@ -90,7 +90,7 @@ or use CocoaPods.
 1. Add additional entry to your Podfile.
 
   ```ruby
-  pod "LiteAutoLayout", "~> 1.0.0"
+  pod "LiteAutoLayout", "~> 1.0.1"
   ```
 
 2. Install  Pod(s) running `pod install` command.

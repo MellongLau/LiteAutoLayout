@@ -85,6 +85,12 @@ subview.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = 
 
 下载文件 LiteAutoLayout.swift 并将其复制到项目文件夹下，添加引用到项目中即可。
 
+或使用CocoaPods(推荐)：
+
+```ruby
+  pod "LiteAutoLayout", "~> 1.0.1"
+```
+
 ### 使用 LiteAutoLayout?
 
 如果你在你的项目中使用了 LiteAutoLayout，请发邮件(邮件地址在下面)告诉我一声，我会把你的 app 的下载链接添加到这里！
