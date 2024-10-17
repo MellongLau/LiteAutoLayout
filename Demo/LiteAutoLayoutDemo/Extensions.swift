@@ -129,8 +129,8 @@ extension UIViewController  {
     
     func showOKMessage(_ title: String, message: String)
     {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction) in
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let ok = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction) in
             
         })
         alertController.addAction(ok)
@@ -139,10 +139,10 @@ extension UIViewController  {
     
     func showConfirmMessage(_ title: String, message: String, confirmHandler: ((UIAlertAction) -> Void)?, cancelHandler: ((UIAlertAction) -> Void)?)
     {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let confirm = UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: UIAlertActionStyle.default, handler: confirmHandler)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let confirm = UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: UIAlertAction.Style.default, handler: confirmHandler)
         alertController.addAction(confirm)
-        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertActionStyle.cancel, handler: cancelHandler)
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertAction.Style.cancel, handler: cancelHandler)
         alertController.addAction(cancel)
         self.present(alertController, animated: true, completion: nil)
     }

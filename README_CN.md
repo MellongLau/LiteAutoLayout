@@ -17,7 +17,7 @@
 
 ### 简介
 
-最近在用 Swift 3.0 (现在已经支持 Swift 4.2)，Swift 3.0给我们带来了很多新的特性，在学习过程中发现自定义操作符这个写法很适合来写 autolayout 的约束，结合自己平时使用 IB 来创建视图之间的约束的经验，决定使用自定义操作符来让使用代码创建约束更加直观，清晰和简单。
+最近在用 Swift 3.0 (现在已经支持 Swift 5)，Swift 3.0给我们带来了很多新的特性，在学习过程中发现自定义操作符这个写法很适合来写 autolayout 的约束，结合自己平时使用 IB 来创建视图之间的约束的经验，决定使用自定义操作符来让使用代码创建约束更加直观，清晰和简单。
 
 其中，`~>` 这个符号被我用来作为视图约束于其同级视图或者父级视图的表达式，如 `(view1 ~> view2)`, 中间需要留空格，而创建对于自身的约束，可以使用`(~>view1)`来创建，中间不需要留空格，后面添加约束是用的简单方便的链式写法。
 
@@ -97,13 +97,6 @@ subview.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = 
 
 我是 Mellong, 可以发邮件联系我 E-Mail: <tendencystudio@gmail.com>
 
-个人网站: [http://blog.devlong.com](http://blog.devlong.com)
-
-## 更多
-
-想了解更多? 关注我的 `微信` 公众号 `mellong`:
-
-![微信二维码](http://www.devlong.com/blogImages/qrcode_for_mellong.jpg)
 
 ### License
 

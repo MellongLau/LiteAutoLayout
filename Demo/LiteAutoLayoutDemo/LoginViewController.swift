@@ -80,7 +80,7 @@ class LoginViewController: UIViewController {
         (~>usernameTextField).marginRight(20)
         
         // Compress label width if possible.
-        usernameLabel.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+        usernameLabel.setContentHuggingPriority(UILayoutPriority.required, for: .horizontal)
         
         // Set two lable with same leading and trailing, and with 30pt vertiall spaces.
         (passwordLabel ~> usernameLabel).leading().trailing().verticalSpacing(30)
@@ -99,7 +99,7 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func onSubmitButtonClicked(sender: UIButton) {
+    @objc func onSubmitButtonClicked(sender: UIButton) {
 
         showOKMessage("Warning", message: "On submit button clicked!")
     }

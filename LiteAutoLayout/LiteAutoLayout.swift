@@ -35,7 +35,7 @@ public extension UIView {
     /// - parameter right: the superview, or the view is at the top or left.
     ///
     /// - returns: RelationLiteAutoLayout instance
-    public static func ~> (left: UIView, right: UIView) -> RelationLiteAutoLayout {
+    static func ~> (left: UIView, right: UIView) -> RelationLiteAutoLayout {
         return RelationLiteAutoLayout(left: left, right: right)
     }
     
@@ -45,7 +45,7 @@ public extension UIView {
     /// - parameter left: which view's layout constraints to be set
     ///
     /// - returns: ItemLiteAutoLayout instance
-    public static prefix func ~> (view: UIView) -> ItemLiteAutoLayout {
+    static prefix func ~> (view: UIView) -> ItemLiteAutoLayout {
         return ItemLiteAutoLayout(left: view, right: nil)
     }
     
@@ -53,7 +53,7 @@ public extension UIView {
     /// Set the view's layout attribute
     ///
     /// - returns: ItemLiteAutoLayout instance
-    @objc public func startLayout() -> ItemLiteAutoLayout {
+    @objc func startLayout() -> ItemLiteAutoLayout {
         return ItemLiteAutoLayout(left: self, right: nil)
     }
     
@@ -63,7 +63,7 @@ public extension UIView {
     /// - parameter toView: the view's superview, or at the top or left of the view.
     ///
     /// - returns: RelationLiteAutoLayout instance
-    @objc public func startLayout(toView: UIView) -> RelationLiteAutoLayout {
+    @objc func startLayout(toView: UIView) -> RelationLiteAutoLayout {
         return RelationLiteAutoLayout(left: self, right: toView)
     }
     
@@ -134,13 +134,13 @@ fileprivate class ContraintModel
     
     @objc @discardableResult public func marginTopToSafeArea(_ constant: Float = 0) -> ItemLiteAutoLayout {
         let superview = firstItem.superview!
-        firstItem.topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor, constant: constant.cgFloat).isActive = true
+        firstItem.topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor, constant: CGFloat(constant)).isActive = true
         return self
     }
     
     @objc @discardableResult public func marginBottomToSafeArea(_ constant: Float = 0) -> ItemLiteAutoLayout {
         let superview = firstItem.superview!
-        firstItem.bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor, constant: constant.cgFloat).isActive = true
+        firstItem.bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor, constant: CGFloat(constant)).isActive = true
         return self
     }
     
@@ -382,6 +382,9 @@ fileprivate class ContraintModel
             layoutAttributes = (.top, .bottom)
             
         case .aspectRatio:
+            guard let firstItem else {
+                return
+            }
             layoutAttributes = (.width, .height)
             layoutConstraint = NSLayoutConstraint(item: firstItem,
                                                   attribute: .width,
@@ -393,7 +396,7 @@ fileprivate class ContraintModel
             
         }
         
-        if item.type != .aspectRatio {
+        if item.type != .aspectRatio, let firstItem {
             layoutConstraint = NSLayoutConstraint(item: firstItem,
                                                   attribute: layoutAttributes.fistAttribute,
                                                   relatedBy: item.relatedBy,

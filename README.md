@@ -3,7 +3,7 @@
 
 <p align="left">
 
-<img src="https://img.shields.io/badge/platform-Xcode%208%2B-blue.svg?style=flat" alt="Platform: Xcode 8+"/>
+<img src="https://img.shields.io/badge/platform-Xcode%2015%2B-blue.svg?style=flat" alt="Platform: Xcode 15+"/>
 <img src="http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat" alt="License: MIT" />
 
 </p>
@@ -75,11 +75,26 @@ We only need one line code to create the same layout constraints!
 ### Requirements
 
 * Swift 5.0
-* iOS 7.0 or later
+* iOS 12.0 or later
 
 ### How to Install
 
 Download `LiteAutoLayout.swift` to your project folder, and then add reference to your project.
+
+or use CocoaPods.
+
+### CocoaPods
+
+[CocoaPods](http://www.cocoapods.org) is the recommended way to add LiteAutoLayout to your project.
+
+1. Add additional entry to your Podfile.
+
+  ```ruby
+  pod "LiteAutoLayout", "~> 1.0.0"
+  ```
+
+2. Install  Pod(s) running `pod install` command.
+3. Include AMAnimatedNumber using `import LiteAutoLayout`.
 
 ### How to use
 
@@ -134,7 +149,6 @@ Forks, patches and other feedback are welcome.
 ### Creator
 I'm Mellong, you can contact me by E-Mail: <tendencystudio@gmail.com>
 
-Website: [http://www.devlong.com](http://www.devlong.com)
 
 ## License
 
